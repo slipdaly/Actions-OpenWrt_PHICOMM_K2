@@ -30,10 +30,10 @@ env:
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   SSH_ACTIONS: false
-  UPLOAD_BIN_DIR: true
+  UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: true
-  UPLOAD_WETRANSFER: true
+  UPLOAD_COWTRANSFER: false
+  UPLOAD_WETRANSFER: false
   TZ: Asia/Shanghai
 
 jobs:
@@ -126,9 +126,9 @@ jobs:
         # CONFIG_TARGET_x86_64_Generic is not set
         EOF
         # 固件压缩:
-        # cat >> .config <<EOF
-        # CONFIG_TARGET_IMAGES_GZIP=y
-        # EOF
+        cat >> .config <<EOF
+        CONFIG_TARGET_IMAGES_GZIP=y
+        EOF
         # 编译UEFI固件:
         # cat >> .config <<EOF
         # CONFIG_EFI_IMAGES=y
