@@ -126,9 +126,9 @@ jobs:
         # CONFIG_TARGET_x86_64_Generic is not set
         EOF
         # 固件压缩:
-        cat >> .config <<EOF
-        CONFIG_TARGET_IMAGES_GZIP=y
-        EOF
+        # cat >> .config <<EOF
+        # CONFIG_TARGET_IMAGES_GZIP=y
+        # EOF
         # 编译UEFI固件:
         # cat >> .config <<EOF
         # CONFIG_EFI_IMAGES=y
@@ -302,7 +302,7 @@ jobs:
         # CONFIG_PACKAGE_luci-app-usb-printer is not set
         # CONFIG_PACKAGE_luci-app-v2ray-server is not set
         # CONFIG_PACKAGE_luci-app-verysync is not set
-        CONFIG_PACKAGE_luci-app-vlmcsd is not set
+        # CONFIG_PACKAGE_luci-app-vlmcsd is not set
         # CONFIG_PACKAGE_luci-app-vnstat is not set
         # CONFIG_PACKAGE_luci-app-vpnbypass is not set
         # CONFIG_PACKAGE_luci-app-vsftpd is not set
@@ -330,7 +330,7 @@ jobs:
         # CONFIG_PACKAGE_vim-fuller=y
         CONFIG_DEFAULT_opkg=n
         CONFIG_PACKAGE_opkg=n
-        CONFIG_PACKAGE_wget=y
+        # CONFIG_PACKAGE_wget=y
         EOF
         # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
         # cat >> .config <<EOF
