@@ -160,7 +160,7 @@ jobs:
         # CONFIG_PACKAGE_luci-app-accesscontrol is not set
         # CONFIG_PACKAGE_luci-app-acme is not set
         # CONFIG_PACKAGE_luci-app-adblock is not set
-         CONFIG_PACKAGE_luci-app-adbyby-plus is not set
+        CONFIG_PACKAGE_luci-app-adbyby-plus=y
         # CONFIG_PACKAGE_luci-app-advanced-reboot is not set
         # CONFIG_PACKAGE_luci-app-ahcp is not set
         # CONFIG_PACKAGE_luci-app-aliddns is not set
@@ -378,20 +378,6 @@ jobs:
       with:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: openwrt/bin
-    - name: Assemble artifact
-      run: |
-        cd openwrt
-        rm -rf ./artifact/
-        mkdir -p ./artifact/
-        find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-        find ./bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
-        
-    - name: Upload artifact
-      uses: actions/upload-artifact@main
-      with:
-        name: OpenWrt phicomm k2 5.4
-        path: ./openwrt/artifact/
-
     - name: Organize files
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
@@ -406,6 +392,20 @@ jobs:
       with:
         name: OpenWrt_firmware_customized${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
+    
+    - name: Assemble artifact
+      run: |
+        cd openwrt
+        rm -rf ./artifact/
+        mkdir -p ./artifact/
+        find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
+        find ./bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
+        
+    - name: Upload artifact
+      uses: actions/upload-artifact@main
+      with:
+        name: OpenWrt phicomm k2 5.4
+        path: ./openwrt/artifact/
 
     - name: Upload firmware to cowtransfer
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
