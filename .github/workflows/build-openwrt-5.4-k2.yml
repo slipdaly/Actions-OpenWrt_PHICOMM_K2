@@ -70,7 +70,7 @@ jobs:
         git clone https://github.com/Kinodi/luci-theme-atmaterial openwrt/package/luci-theme-atmaterial
         git clone https://github.com/jerrykuku/luci-theme-argon openwrt/package/luci-theme-argon
         git clone https://github.com/Lienol/openwrt-package openwrt/package/openwrt-package
-        # git clone -b lede https://github.com/pymumu/luci-app-smartdns openwrt/package/luci-app-smartdns
+        git clone -b lede https://github.com/pymumu/luci-app-smartdns openwrt/package/luci-app-smartdns
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
@@ -272,7 +272,7 @@ jobs:
         # CONFIG_PACKAGE_luci-app-shairplay is not set
         # CONFIG_PACKAGE_luci-app-siitwizard is not set
         # CONFIG_PACKAGE_luci-app-simple-adblock is not set
-        # CONFIG_PACKAGE_luci-app-smartdns=y
+        CONFIG_PACKAGE_luci-app-smartdns=y
         # CONFIG_PACKAGE_luci-app-softethervpn is not set
         # CONFIG_PACKAGE_luci-app-splash is not set
         # CONFIG_PACKAGE_luci-app-sqm is not set
