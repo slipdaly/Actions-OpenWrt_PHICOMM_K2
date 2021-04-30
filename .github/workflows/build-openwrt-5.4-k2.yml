@@ -163,7 +163,7 @@ jobs:
         CONFIG_PACKAGE_luci-app-adbyby-plus=y
         # CONFIG_PACKAGE_luci-app-advanced-reboot is not set
         # CONFIG_PACKAGE_luci-app-ahcp is not set
-        # CONFIG_PACKAGE_luci-app-aliddns is not set
+        CONFIG_PACKAGE_luci-app-aliddns=n
         # CONFIG_PACKAGE_luci-app-amule is not set
         # CONFIG_PACKAGE_luci-app-aria2 is not set
         CONFIG_PACKAGE_luci-app-arpbind=y
@@ -186,7 +186,7 @@ jobs:
         # CONFIG_PACKAGE_luci-app-control-webrestriction is not set
         # CONFIG_PACKAGE_luci-app-control-weburl is not set
         # CONFIG_PACKAGE_luci-app-cshark is not set
-        # CONFIG_PACKAGE_luci-app-ddns is not set
+        CONFIG_PACKAGE_luci-app-ddns=n
         # CONFIG_PACKAGE_luci-app-diag-core is not set
         # CONFIG_PACKAGE_luci-app-dnscrypt-proxy is not set
         # CONFIG_PACKAGE_luci-app-dnsforwarder is not set
@@ -320,8 +320,8 @@ jobs:
         EOF
         # LuCI主题:
         # cat >> .config <<EOF
-        # CONFIG_PACKAGE_luci-theme-argon=y
-        # CONFIG_PACKAGE_luci-theme-netgear=y
+        # CONFIG_PACKAGE_luci-theme-argon=n
+        # CONFIG_PACKAGE_luci-theme-netgear=n
         # EOF
         # 常用软件包:
         cat >> .config <<EOF
